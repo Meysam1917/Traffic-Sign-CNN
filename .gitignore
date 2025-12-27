@@ -1,5 +1,5 @@
 # Data & datasets
-
+data/
 *.pickle
 
 # Model weights

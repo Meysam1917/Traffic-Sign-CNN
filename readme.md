@@ -33,3 +33,15 @@ The goal of this project is to practice the complete computer vision pipeline, i
 1. Install dependencies:
 ```bash
 pip install -r requirements.txt
+
+
+## Dataset
+Due to GitHub file size limits, the dataset is not included in this repository.
+
+You can download the GTSRB dataset from:
+https://benchmark.ini.rub.de/gtsrb_news.html
+
+After downloading, place the data files inside the `data/` directory.
+
+
+
