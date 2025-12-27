@@ -1,3 +1,5 @@
+from sklearn.metrics import classification_report
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -48,7 +50,6 @@ with torch.no_grad():
 test_acc = 100 * correct / total
 print(f"Test Accuracy: {test_acc:.2f}%")
 
-import numpy as np
 
 all_preds = []
 all_labels = []
@@ -70,9 +71,34 @@ cm = confusion_matrix(all_labels, all_preds)
 print(cm.shape)
 
 
-plt.figure(figsize=(12,10))
+plt.figure(figsize=(12, 10))
 sns.heatmap(cm, cmap="Blues", cbar=True)
 plt.xlabel("Predicted Label")
 plt.ylabel("True Label")
 plt.title("Confusion Matrix - Traffic Sign Classifier")
+plt.show()
+
+
+class_names = [str(i) for i in range(num_classes)]
+print(classification_report(all_labels, all_preds, target_names=class_names))
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(all_labels, all_preds)
+
+plt.figure(figsize=(6, 5))
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=class_names,
+    yticklabels=class_names
+)
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Confusion Matrix")
 plt.show()
