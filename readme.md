@@ -44,4 +44,12 @@ https://benchmark.ini.rub.de/gtsrb_news.html
 After downloading, place the data files inside the `data/` directory.
 
 
+## Evaluation Metrics
+
+The model was evaluated using precision, recall, and F1-score along with accuracy.
+
+```python
+from sklearn.metrics import classification_report
+
+print(classification_report(y_true, y_pred, target_names=class_names))
 
